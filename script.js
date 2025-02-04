@@ -1,13 +1,16 @@
-const yesBtn = document.getElementById('yes-btn');
-const noBtn = document.getElementById('no-btn');
-const response = document.getElementById('response');
+const yesButton = document.getElementById('yesButton');
+const noButton = document.getElementById('noButton');
 
-yesBtn.addEventListener('click', () => {
-    response.textContent = 'Yay! Thanks for being my Valentine!';
-    response.style.color = '#4CAF50';
+noButton.addEventListener('click', () => {
+    // Increase the size of the Yes button
+    const currentYesSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+    yesButton.style.fontSize = `${currentYesSize * 1.2}px`;
+
+    // Decrease the size of the No button
+    const currentNoSize = parseFloat(window.getComputedStyle(noButton).fontSize);
+    noButton.style.fontSize = `${currentNoSize * 0.8}px`;
 });
 
-noBtn.addEventListener('click', () => {
-    response.textContent = 'Aww, okay! Maybe next time?';
-    response.style.color = '#ff69b4';
-}}<;
+yesButton.addEventListener('click', () => {
+    alert("Yay! I love you too! ❤️");
+});
