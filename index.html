@@ -52,38 +52,25 @@
             "JavaScript is fun!"
         ];
     const yesButton = document.getElementById('yesButton');
-    const button = document.getElementById('noButton');
+    const noButton = document.getElementById('noButton');
     const response = document.getElementById('response');
 
     yesButton.addEventListener('click', () => {
       response.textContent = "Great! Thank you!";
     });
-    
-    button.addEventListener('click', () => {
-            const randomIndex = Math.floor(Math.random() * randomTexts.length);
-            response.textContent = randomTexts[randomIndex];
-            const buttonWidth = button.offsetWidth;
-            const buttonHeight = button.offsetHeight;
-            const maxX = window.innerWidth - buttonWidth;
-            const maxY = window.innerHeight - buttonHeight;
-            
-            const newX = Math.random() * maxX;
-            const newY = Math.random() * maxY;
-            
-            button.style.transform = `translate(${newX}px, ${newY}px)`;
-        });
-    /* noButton.addEventListener('click', () => {
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
 
-      const randomX = Math.floor(Math.random() * (windowWidth - noButton.offsetWidth));
-      const randomY = Math.floor(Math.random() * (windowHeight - noButton.offsetHeight));
-      
-      const randomIndex = Math.floor(Math.random() * randomTexts.length);
+    noButton.addEventListener('click', () => {
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    const randomX = Math.floor(Math.random() * (windowWidth - button.offsetWidth));
+    const randomY = Math.floor(Math.random() * (windowHeight - button.offsetHeight));
+
+    button.style.left = `${randomX}px`;
+    button.style.top = `${randomY}px`;
+    const randomIndex = Math.floor(Math.random() * randomTexts.length);
             response.textContent = randomTexts[randomIndex];
-    
-      button.style.transform = `translate(${newX}px, ${newY}px)`;
-      }); */
-  </script>
+     });
+</script>
 </body>
 </html>
