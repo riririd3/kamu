@@ -68,6 +68,9 @@
       color: #4CAF50;
       margin-top: 20px;
     }
+    #noButtonImage {
+      width: 200px;
+    }
   </style>
 </head>
 <body>
@@ -86,9 +89,8 @@
       "Kenapa enggak?",
       "Kamu yakin?",
       "Mau dong plis",
-      "Kamu kayaknya klik tombol yang salah",
-      ":(",
-      "T-T"
+      "Kamu kayaknya klik tombol yang salah deh",
+      ":("
     ];
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
@@ -97,12 +99,14 @@
     yesButton.addEventListener('click', () => {
       response.textContent = "Lov U 😊";
       response.style.color = "#4CAF50";
+      noButton.style.display = 'none';
     });
 
     noButton.addEventListener('click', () => {
       const randomIndex = Math.floor(Math.random() * randomTexts.length);
       response.textContent = randomTexts[randomIndex];
       response.style.color = "#f44336";
+      noButtonImage.style.display = 'block';
 
       const container = document.querySelector('.container');
       const containerRect = container.getBoundingClientRect();
