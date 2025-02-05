@@ -62,7 +62,7 @@
     <div class="container">
         <h1>Kamu suka aku nggak?</h1>
         <button id="yesButton">Suka</button>
-        <button id="noButton">Nggak</button>
+        <button id="noButton">Nggak!</button>
         <p id="responseMessage"></p>
     </div>
 
@@ -80,7 +80,7 @@
             const randomY = Math.floor(Math.random() * maxY);
 
             noButton.style.left = `${randomX}px`;
-            noButton.style.top = `${randomY}px`;
+            noButton.style.down = `${randomY}px`;
         }
 
         document.getElementById("yesButton").addEventListener("click", function() {
