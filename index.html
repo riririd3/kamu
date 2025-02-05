@@ -17,9 +17,11 @@
       border: none;
       cursor: pointer;
       font-size: 18px;
-      position: relative;
+      position: absolute;
       left: 10%; /* Center horizontally */
       top: 20%; /* Center vertically */
+      transform: translate(-50%, -50%); /* Adjust for the button's size */
+      transition: all 0.5s ease; /* Smooth transition */
     }
     #noButton {
       background-color: red;
