@@ -28,7 +28,7 @@
       cursor: pointer;
       font-size: 18px;
       position: absolute;
-      transition: all 0.5s ease; /* Smooth transition */
+      transition: transform 0.5s ease; /* Smooth transition */
     }
     #response {
       margin-top: 20px;
@@ -69,9 +69,7 @@
       const randomIndex = Math.floor(Math.random() * randomTexts.length);
             response.textContent = randomTexts[randomIndex];
     
-      noButton.style.left = `${randomX}px`;
-      noButton.style.top = `${randomY}px`;
-      
+      noButton.style.transform = `translate(${newX}px, ${newY}px)`;
       });
   </script>
 </body>
