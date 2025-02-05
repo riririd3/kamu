@@ -68,10 +68,6 @@
       color: #4CAF50;
       margin-top: 20px;
     }
-    #noButtonImage {
-      width: 100px;
-      margin-top: 20px;
-    }
   </style>
 </head>
 <body>
@@ -82,7 +78,6 @@
       <button id="noButton">Gak!</button>
     </div>
     <div id="response"></div>
-    <img id="noButtonImage" src="img/images_54.jpg" alt="<3" style="display:none;">
   </div>
 
   <script>
@@ -107,7 +102,6 @@
       const randomIndex = Math.floor(Math.random() * randomTexts.length);
       response.textContent = randomTexts[randomIndex];
       response.style.color = "#f44336";
-      noButtonImage.style.display = 'block';
 
       const container = document.querySelector('.container');
       const containerRect = container.getBoundingClientRect();
