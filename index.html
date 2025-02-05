@@ -38,7 +38,7 @@
     }
     #response {
       position: absolute;
-      top: 90%;
+      top: 80%;
       left: 50%;
       font-size: 24px;
       color: green;
@@ -95,10 +95,9 @@
   } while (
     randomX < yesButton.offsetLeft + yesButton.offsetWidth &&
     randomY < yesButton.offsetTop + yesButton.offsetHeight
+    randomX < response.offsetLeft + yesButton.offsetWidth &&
+    randomY < response.offsetTop + yesButton.offsetHeight 
   );
-
-  noButton.style.left = `${randomX}px`;
-  noButton.style.top = `${randomY}px`;
 });
   </script>
 </body>
