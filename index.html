@@ -97,9 +97,7 @@
       response.textContent = "Lov U 😊";
       response.style.color = "#4CAF50";
       noButton.style.display = 'none';
-      yesButtonSize += 0.1; // Increase by 0.1 every time
-      yesButton.style.transform = `scale(${yesButtonSize})`;
-    });
+      });
 
     noButton.addEventListener('click', () => {
       const randomIndex = Math.floor(Math.random() * randomTexts.length);
@@ -124,6 +122,8 @@
 
       noButton.style.left = `${randomX}px`;
       noButton.style.top = `${randomY}px`;
+      yesButtonSize += 0.1; // Increase by 0.1 every time
+      yesButton.style.transform = `scale(${yesButtonSize})`;
     });
   </script>
 </body>
