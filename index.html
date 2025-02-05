@@ -3,15 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do You Love Me?</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Clickable Buttons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        #yesButton {
+            background-color: #28a745; /* Green */
+        }
+
+        #yesButton:hover {
+            background-color: #218838; /* Darker green */
+        }
+
+        #noButton {
+            background-color: #dc3545; /* Red */
+        }
+
+        #noButton:hover {
+            background-color: #c82333; /* Darker red */
+        }
+
+        #responseMessage {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Do You Love Me?</h1>
+        <h1>Do you like this website?</h1>
         <button id="yesButton">Yes</button>
         <button id="noButton">No</button>
+        <p id="responseMessage"></p>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        document.getElementById("yesButton").addEventListener("click", function() {
+            document.getElementById("responseMessage").textContent = "Thanks!";
+        });
+
+        document.getElementById("noButton").addEventListener("click", function() {
+            document.getElementById("responseMessage").textContent = "Oh no!";
+        });
+    </script>
 </body>
 </html>
