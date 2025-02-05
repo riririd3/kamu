@@ -60,18 +60,18 @@
     });
 
     noButton.addEventListener('click', () => {
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
 
-    const randomX = Math.floor(Math.random() * (windowWidth - button.offsetWidth));
-    const randomY = Math.floor(Math.random() * (windowHeight - button.offsetHeight));
-
-    button.style.left = `${randomX}px`;
-    button.style.top = `${randomY}px`;
-    
-    const randomIndex = Math.floor(Math.random() * randomTexts.length);
+      const randomX = Math.floor(Math.random() * (windowWidth - noButton.offsetWidth));
+      const randomY = Math.floor(Math.random() * (windowHeight - noButton.offsetHeight));
+      
+      const randomIndex = Math.floor(Math.random() * randomTexts.length);
             response.textContent = randomTexts[randomIndex];
-     });
+    
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+    });
 </script>
 </body>
 </html>
