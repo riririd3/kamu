@@ -42,8 +42,7 @@
   <button id="yesButton">Yes</button>
   <button id="noButton">No</button>
   <div id="response"></div>
-</body>
-<script>
+  <script>
     const randomTexts = [
             "Hello, world!",
             "You clicked me!",
@@ -69,10 +68,6 @@
         });
       const randomIndex = Math.floor(Math.random() * randomTexts.length);
             response.textContent = randomTexts[randomIndex];
-    
-      noButton.style.left = `${randomX}px`;
-      noButton.style.top = `${randomY}px`;
-      
       });
   </script>
 </body>
