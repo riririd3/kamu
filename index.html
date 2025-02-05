@@ -47,17 +47,16 @@
     }
     #yesButton {
       background-color: #4CAF50;
-      left: 20%;
       color: white;
-      position: relative;
+      left: 20%;
     }
     #yesButton:hover {
       background-color: #45a049;
     }
     #noButton {
       background-color: #f44336;
-      left: 20%;
       color: white;
+      left: 20%;
       position: absolute; /* Ensure it moves freely within the container */
     }
     #noButton:hover {
@@ -66,6 +65,10 @@
     #response {
       font-size: 1.5rem;
       color: #4CAF50;
+      margin-top: 20px;
+    }
+    #noButtonImage {
+      width: 100px;
       margin-top: 20px;
     }
   </style>
@@ -78,6 +81,7 @@
       <button id="noButton">Gak!</button>
     </div>
     <div id="response"></div>
+    <img id="noButtonImage" src="https://via.placeholder.com/100" alt="Reaction" style="display:none;">
   </div>
 
   <script>
@@ -92,16 +96,21 @@
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const response = document.getElementById('response');
+    const noButtonImage = document.getElementById('noButtonImage');
 
     yesButton.addEventListener('click', () => {
       response.textContent = "Lov U 😊";
       response.style.color = "#4CAF50";
+      noButton.style.display = 'none'; // Hide the "Gak!" button
     });
 
     noButton.addEventListener('click', () => {
       const randomIndex = Math.floor(Math.random() * randomTexts.length);
       response.textContent = randomTexts[randomIndex];
       response.style.color = "#f44336";
+      
+      // Show the image when "Gak!" is clicked
+      noButtonImage.style.display = 'block';
 
       const container = document.querySelector('.container');
       const containerRect = container.getBoundingClientRect();
