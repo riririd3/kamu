@@ -52,14 +52,27 @@
             "JavaScript is fun!"
         ];
     const yesButton = document.getElementById('yesButton');
-    const noButton = document.getElementById('noButton');
+    const button = document.getElementById('noButton');
     const response = document.getElementById('response');
 
     yesButton.addEventListener('click', () => {
       response.textContent = "Great! Thank you!";
     });
-
-    noButton.addEventListener('click', () => {
+    
+    button.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * randomTexts.length);
+            response.textContent = randomTexts[randomIndex];
+            const buttonWidth = button.offsetWidth;
+            const buttonHeight = button.offsetHeight;
+            const maxX = window.innerWidth - buttonWidth;
+            const maxY = window.innerHeight - buttonHeight;
+            
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            
+            button.style.transform = `translate(${newX}px, ${newY}px)`;
+        });
+    /* noButton.addEventListener('click', () => {
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
 
@@ -69,8 +82,8 @@
       const randomIndex = Math.floor(Math.random() * randomTexts.length);
             response.textContent = randomTexts[randomIndex];
     
-      noButton.style.transform = `translate(${newX}px, ${newY}px)`;
-      });
+      button.style.transform = `translate(${newX}px, ${newY}px)`;
+      }); */
   </script>
 </body>
 </html>
