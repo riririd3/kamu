@@ -38,7 +38,7 @@
     }
     #response {
       position: absolute;
-      top: 95%;
+      top: 90%;
       left: 50%;
       font-size: 24px;
       color: green;
@@ -80,6 +80,26 @@
       noButton.style.left = `${randomX}px`;
       noButton.style.top = `${randomY}px`;
     });
+
+    noButton.addEventListener('click', () => {
+  const randomIndex = Math.floor(Math.random() * randomTexts.length);
+  response.textContent = randomTexts[randomIndex];
+
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+
+  let randomX, randomY;
+  do {
+    randomX = Math.floor(Math.random() * (windowWidth - noButton.offsetWidth));
+    randomY = Math.floor(Math.random() * (windowHeight - noButton.offsetHeight));
+  } while (
+    randomX < yesButton.offsetLeft + yesButton.offsetWidth &&
+    randomY < yesButton.offsetTop + yesButton.offsetHeight
+  );
+
+  noButton.style.left = `${randomX}px`;
+  noButton.style.top = `${randomY}px`;
+});
   </script>
 </body>
 </html>
