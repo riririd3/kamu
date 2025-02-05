@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mau Gak Jadi Pacarku?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f9;
+      overflow: hidden; /* Prevents scrolling */
+    }
+    .container {
+      width: 100vw;
+      height: 100vh;
+      padding: 20px;
+      background-color: white;
+      border-radius: 0; /* Remove rounded corners for full-screen effect */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-top: 20px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #yesButton {
+      background-color: #4CAF50;
+      color: white;
+      position: absolute;
+      top:50%;
+    }
+    #yesButton:hover {
+      background-color: #45a049;
+    }
+    #noButton {
+      background-color: #f44336;
+      color: white;
+      top: 65%;
+      position: absolute; /* Ensure it moves freely within the container */
+    }
+    #noButton:hover {
+      background-color: #e53935;
+    }
+    #response {
+      font-size: 1.5rem;
+      color: #4CAF50;
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Kamu mau gak jadi pacarkuu?</h1>
+    <div class="buttons">
+      <button id="yesButton">Mauu</button>
+      <button id="noButton">Gak!</button>
+    </div>
+    <div id="response"></div>
+  </div>
+
+  <script>
+    const randomTexts = [
+      "Kenapa enggak?",
+      "Kamu yakin?",
+      "Mau dong plis",
+      "Kamu kayaknya klik tombol yang salah deh",
+      ":("
+    ];
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const response = document.getElementById('response');
+    let yesButtonSize = 1;
+    let noButtonSize = 1;
+    
+    yesButton.addEventListener('click', () => {
+      response.textContent = "Lov U 😊";
+      response.style.color = "#4CAF50";
+      noButton.style.display = 'none';
+      yesButton.style.display = 'none';
+      });
+
+    noButton.addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * randomTexts.length);
+      response.textContent = randomTexts[randomIndex];
+      response.style.color = "#f44336";
+
+      const container = document.querySelector('.container');
+      const containerRect = container.getBoundingClientRect();
+      const noButtonRect = noButton.getBoundingClientRect();
+
+      const maxX = containerRect.width - noButtonRect.width - 20; // Adjust maxX for container width
+      const maxY = containerRect.height - noButtonRect.height - 20; // Adjust maxY for container height
+
+      let randomX, randomY;
+      do {
+        randomX = Math.floor(Math.random() * maxX);
+        randomY = Math.floor(Math.random() * maxY);
+      } while (
+        randomX < yesButton.offsetWidth + 20 && // Avoid overlapping with "Yes" button
+        randomY < yesButton.offsetHeight + 20
+      );
+
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+      yesButtonSize += 0.1; // Increase by 0.1 every time
+      yesButton.style.transform = `scale(${yesButtonSize})`;
+      noButtonSize -= 0.01; // Decrease by 0.01 every time
+      noButton.style.transform = `scale(${noButtonSize})`;
+   
+    });
+  </script>
+</body>
+</html>
