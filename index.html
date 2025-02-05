@@ -44,6 +44,18 @@
   <button id="noButton">No</button>
   <div id="response"></div>
 <script>
+  window.addEventListener('load', () => {
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+
+  const initialX = Math.floor(windowWidth / 2 - noButton.offsetWidth / 2);
+  const initialY = Math.floor(windowHeight / 2 - noButton.offsetHeight / 2);
+
+  const initialX = Math.floor(windowWidth / -2 - yesButton.offsetWidth / -2);
+  const initialY = Math.floor(windowHeight / -2 - yesButton.offsetHeight / -2);
+  noButton.style.left = `${initialX}px`;
+  noButton.style.top = `${initialY}px`;
+    });
     const randomTexts = [
             "Hello, world!",
             "You clicked me!",
@@ -59,19 +71,6 @@
     yesButton.addEventListener('click', () => {
       response.textContent = "Great! Thank you!";
     });
-    
-    window.addEventListener('load', () => {
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
-
-  const initialX = Math.floor(windowWidth / 2 - noButton.offsetWidth / 2);
-  const initialY = Math.floor(windowHeight / 2 - noButton.offsetHeight / 2);
-
-  const initialX = Math.floor(windowWidth / -2 - yesButton.offsetWidth / -2);
-  const initialY = Math.floor(windowHeight / -2 - yesButton.offsetHeight / -2);
-  noButton.style.left = `${initialX}px`;
-  noButton.style.top = `${initialY}px`;
-    });
   
      noButton.addEventListener('click', () => {
       const randomIndex = Math.floor(Math.random() * randomTexts.length);
@@ -85,6 +84,7 @@
       
       noButton.style.left = `${randomX}px`;
       noButton.style.top = `${randomY}px`;
+       
     });
  </script>
 </body>
