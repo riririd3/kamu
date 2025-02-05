@@ -60,14 +60,9 @@
     });
 
     noButton.addEventListener('click', () => {
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-
-    const randomX = Math.floor(Math.random() * (windowWidth - button.offsetWidth));
-    const randomY = Math.floor(Math.random() * (windowHeight - button.offsetHeight));
-
-    button.style.left = `${randomX}px`;
-    button.style.top = `${randomY}px`;
+    const randomX = Math.random() * 300;  // Random X movement (max 300px)
+    const randomY = Math.random() * 300;  // Random Y movement (max 300px)
+            button.style.transform = `translate(${randomX}px, ${randomY}px)`;
     const randomIndex = Math.floor(Math.random() * randomTexts.length);
             response.textContent = randomTexts[randomIndex];
      });
