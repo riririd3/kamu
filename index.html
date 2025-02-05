@@ -19,7 +19,6 @@
       font-size: 18px;
       position: relative;
       left: 25%;
-      top: 50%;
     }
     #noButton {
       background-color: red;
@@ -29,8 +28,6 @@
       cursor: pointer;
       font-size: 18px;
       position: absolute;
-      left: 75%;
-      top: 50%;
       transition: all 0.5s ease; /* Smooth transition */
     }
     #response {
@@ -61,8 +58,19 @@
     yesButton.addEventListener('click', () => {
       response.textContent = "Great! Thank you!";
     });
+    
+    window.addEventListener('load', () => {
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
 
-    noButton.addEventListener('click', () => {
+  const initialX = Math.floor(windowWidth / 2 - noButton.offsetWidth / 2);
+  const initialY = Math.floor(windowHeight / 2 - noButton.offsetHeight / 2);
+
+  noButton.style.left = `${initialX}px`;
+  noButton.style.top = `${initialY}px`;
+    });
+  
+     noButton.addEventListener('click', () => {
       const randomIndex = Math.floor(Math.random() * randomTexts.length);
             response.textContent = randomTexts[randomIndex];
     
