@@ -40,7 +40,6 @@
 
         #yesButton:hover {
             background-color: #218838;
-            posisition: relative;
         }
 
         #noButton {
@@ -81,7 +80,7 @@
             const randomY = Math.floor(Math.random() * maxY);
 
             noButton.style.left = `${randomX}px`;
-            noButton.style.right = `${randomY}px`;
+            noButton.style.top = `${randomY}px`;
         }
 
         document.getElementById("yesButton").addEventListener("click", function() {
