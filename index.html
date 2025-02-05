@@ -91,11 +91,14 @@
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const response = document.getElementById('response');
-
+    let yesButtonSize = 1;
+    
     yesButton.addEventListener('click', () => {
       response.textContent = "Lov U 😊";
       response.style.color = "#4CAF50";
       noButton.style.display = 'none';
+      yesButtonSize += 0.1; // Increase by 0.1 every time
+      yesButton.style.transform = `scale(${yesButtonSize})`;
     });
 
     noButton.addEventListener('click', () => {
