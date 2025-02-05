@@ -1,96 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamu Suka Aku Nggak</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            position: relative;
-        }
-
-        .container {
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        button {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            color: white;
-        }
-
-        #yesButton {
-            background-color: #28a745;
-        }
-
-        #yesButton:hover {
-            background-color: #218838;
-        }
-
-        #noButton {
-            background-color: #dc3545;
-            position: absolute; 
-        }
-
-        #noButton:hover {
-            background-color: #c82333;
-        }
-
-        #responseMessage {
-            margin-top: 20px;
-            font-size: 18px;
-            color: green;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yes or No</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    #yesButton {
+      background-color: green;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      position: relative;
+      left: -50px; /* Move the button 50px to the left */
+    }
+    #noButton {
+      background-color: red;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      position: absolute;
+      transition: all 0.5s ease; /* Smooth transition */
+    }
+    #response {
+      margin-top: 20px;
+      font-size: 24px;
+      color: green;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Kamu suka aku nggak?</h1>
-        <button id="yesButton">Suka</button>
-        <button id="noButton">Nggak!</button>
-        <p id="responseMessage"></p>
-    </div>
+  <h1>Do you like this website?</h1>
+  <button id="yesButton">Yes</button>
+  <button id="noButton">No</button>
+  <div id="response"></div>
 
-    <script>
-        function moveNoButton() {
-            const noButton = document.getElementById("noButton");
-            const container = document.querySelector(".container");
+  <script>
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const response = document.getElementById('response');
 
-            const containerRect = container.getBoundingClientRect();
+    yesButton.addEventListener('click', () => {
+      response.textContent = "Great! Thank you!";
+    });
 
-            const maxX = containerRect.width - noButton.offsetWidth;
-            const maxY = containerRect.height - noButton.offsetHeight;
+    noButton.addEventListener('click', () => {
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
 
-            const randomX = Math.floor(Math.random() * maxX);
-            const randomY = Math.floor(Math.random() * maxY);
+      const randomX = Math.floor(Math.random() * (windowWidth - noButton.offsetWidth));
+      const randomY = Math.floor(Math.random() * (windowHeight - noButton.offsetHeight));
 
-            noButton.style.left = `${randomX}px`;
-            noButton.style.top = `${randomY}px`;
-        }
-
-        document.getElementById("yesButton").addEventListener("click", function() {
-            document.getElementById("responseMessage").textContent = "<3";
-        });
-
-        document.getElementById("noButton").addEventListener("click", function() {
-            document.getElementById("responseMessage").textContent = "Oh no!";
-            moveNoButton();
-        });
-    </script>
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+    });
+  </script>
 </body>
 </html>
