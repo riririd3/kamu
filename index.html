@@ -32,7 +32,7 @@
       transition: all 0.5s ease; /* Smooth transition */
     }
     #response {
-      margin-top: 20px;
+      top: 20%;
       font-size: 24px;
       color: green;
     }
@@ -44,14 +44,6 @@
   <button id="noButton">No</button>
   <div id="response"></div>
 <script>
-  window.addEventListener('load', () => {
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
-  const initialX = Math.floor(windowWidth / 2 - noButton.offsetWidth / 2);
-  const initialY = Math.floor(windowHeight / 2 - noButton.offsetHeight / 2);
-  noButton.style.left = `${initialX}px`;
-  noButton.style.top = `${initialY}px`;
-    });
     const randomTexts = [
             "Hello, world!",
             "You clicked me!",
@@ -63,24 +55,18 @@
     const yesButton = document.getElementById('yesButton');
     const noButton = document.getElementById('noButton');
     const response = document.getElementById('response');
-
     yesButton.addEventListener('click', () => {
       response.textContent = "Great! Thank you!";
     });
-  
-     noButton.addEventListener('click', () => {
-      const randomIndex = Math.floor(Math.random() * randomTexts.length);
-            response.textContent = randomTexts[randomIndex];
-       
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-
-      const randomX = Math.floor(Math.random() * (windowWidth - noButton.offsetWidth));
-      const randomY = Math.floor(Math.random() * (windowHeight - noButton.offsetHeight));
-      
-      noButton.style.left = `${randomX}px`;
-      noButton.style.top = `${randomY}px`;
-       
+    noButton.addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * randomTexts.length);
+      response.textContent = randomTexts[randomIndex];
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const randomX = Math.floor(Math.random() * (windowWidth - noButton.offsetWidth));
+    const randomY = Math.floor(Math.random() * (windowHeight - noButton.offsetHeight));
+    noButton.style.left = `${randomX}px`;
+    noButton.style.top = `${randomY}px`;
     });
  </script>
 </body>
