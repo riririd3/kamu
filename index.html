@@ -28,10 +28,7 @@
       cursor: pointer;
       font-size: 18px;
       position: absolute;
-      transition: all 0.5s ease-in-out; /* Smooth transition */
-    }
-    noButton:hover {
-            background-color: #45a049;
+      transition: all 0.8s ease; /* Smooth transition */
     }
     #response {
       margin-top: 20px;
@@ -64,12 +61,12 @@
     });
 
     noButton.addEventListener('click', () => {
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-
-      const randomX = Math.floor(Math.random() * (windowWidth - noButton.offsetWidth));
-      const randomY = Math.floor(Math.random() * (windowHeight - noButton.offsetHeight));
-      
+      const randomX = Math.random() * 300;  // Random X movement (max 300px)
+      const randomY = Math.random() * 300;  // Random Y movement (max 300px)
+            
+            // Apply the transformation to the button
+            button.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        });
       const randomIndex = Math.floor(Math.random() * randomTexts.length);
             response.textContent = randomTexts[randomIndex];
     
