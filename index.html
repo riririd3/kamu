@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clickable Buttons</title>
+    <title>Kamu Suka Aku Nggak</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,6 +13,7 @@
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            position: relative;
         }
 
         .container {
@@ -34,19 +35,20 @@
         }
 
         #yesButton {
-            background-color: #28a745; /* Green */
+            background-color: #28a745;
         }
 
         #yesButton:hover {
-            background-color: #218838; /* Darker green */
+            background-color: #218838;
         }
 
         #noButton {
-            background-color: #dc3545; /* Red */
+            background-color: #dc3545;
+            position: absolute; 
         }
 
         #noButton:hover {
-            background-color: #c82333; /* Darker red */
+            background-color: #c82333;
         }
 
         #responseMessage {
@@ -58,19 +60,36 @@
 </head>
 <body>
     <div class="container">
-        <h1>Do you like this website?</h1>
-        <button id="yesButton">Yes</button>
-        <button id="noButton">No</button>
+        <h1>Kamu suka aku nggak?</h1>
+        <button id="yesButton">Suka</button>
+        <button id="noButton">Nggak</button>
         <p id="responseMessage"></p>
     </div>
 
     <script>
+        function moveNoButton() {
+            const noButton = document.getElementById("noButton");
+            const container = document.querySelector(".container");
+
+            const containerRect = container.getBoundingClientRect();
+
+            const maxX = containerRect.width - noButton.offsetWidth;
+            const maxY = containerRect.height - noButton.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+
         document.getElementById("yesButton").addEventListener("click", function() {
-            document.getElementById("responseMessage").textContent = "Thanks!";
+            document.getElementById("responseMessage").textContent = "<3";
         });
 
         document.getElementById("noButton").addEventListener("click", function() {
             document.getElementById("responseMessage").textContent = "Oh no!";
+            moveNoButton();
         });
     </script>
 </body>
