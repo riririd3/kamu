@@ -30,8 +30,10 @@
       position: absolute;
       right: 10%;
       transition: all 0.5s ease; /* Smooth transition */
+      transform: translate(-50%, 50%);
     }
     #response {
+      posisition: absolute;
       top: 20%;
       font-size: 24px;
       color: green;
@@ -44,6 +46,16 @@
   <button id="noButton">No</button>
   <div id="response"></div>
 <script>
+    window.addEventListener('load', () => {
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+ 
+    const initialX = Math.floor(windowWidth / 2 - noButton.offsetWidth / 2);
+    const initialY = Math.floor(windowHeight / 2 - noButton.offsetHeight / 2);
+
+    noButton.style.left = `${initialX}px`;
+    noButton.style.top = `${initialY}px`;
+   });
     const randomTexts = [
             "Hello, world!",
             "You clicked me!",
