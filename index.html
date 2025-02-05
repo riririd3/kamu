@@ -28,7 +28,7 @@
       cursor: pointer;
       font-size: 18px;
       position: absolute;
-      transition: all 0.5s ease-in-out; /* Smooth transition */
+      transition: all 0.5s ease; /* Smooth transition */
     }
     #response {
       margin-top: 20px;
@@ -60,18 +60,18 @@
     });
 
     noButton.addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * randomTexts.length);
+            response.textContent = randomTexts[randomIndex];
+    
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
 
       const randomX = Math.floor(Math.random() * (windowWidth - noButton.offsetWidth));
       const randomY = Math.floor(Math.random() * (windowHeight - noButton.offsetHeight));
       
-      const randomIndex = Math.floor(Math.random() * randomTexts.length);
-            response.textContent = randomTexts[randomIndex];
-    
       noButton.style.left = `${randomX}px`;
       noButton.style.top = `${randomY}px`;
     });
-</script>
+ </script>
 </body>
 </html>
